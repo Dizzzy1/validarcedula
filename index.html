@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validador de Cédula Dominicana</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+ 
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="w-full max-w-md">
+        <div class="bg-white rounded-xl shadow-xl overflow-hidden transition-all duration-300">
+            <!-- Header with DR flag colors -->
+            <div class="flag-bg text-white p-6 text-center relative">
+                <div class="absolute top-4 left-4 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-id-card text-white"></i>
+                </div>
+                <h1 class="text-2xl font-bold">Validador de Cédula</h1>
+                <p class="text-blue-100 mt-1">República Dominicana - Módulo 10</p>
+                <div class="absolute top-4 right-4 w-10 h-10 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-white"></i>
+                </div>
+            </div>
+            
+            <!-- Form -->
+            <div class="p-6">
+                <div class="mb-6">
+                    <label for="cedula" class="block text-gray-700 font-medium mb-2">Número de Cédula</label>
+                    <div class="relative">
+                        <input 
+                            type="text" 
+                            id="cedula" 
+                            maxlength="11"
+                            placeholder="Ej: 00112345678" 
+                            class="w-full px-4 py-3 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none transition-colors duration-300"
+                            onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <div class="absolute right-3 top-3 text-gray-400">
+                            <i class="fas fa-keyboard"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-500 text-sm mt-1">Ingrese los 11 dígitos de su cédula</p>
+                </div>
+                
+                <button 
+                    id="validateBtn"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-lg flex items-center justify-center gap-2 pulse">
+                    <i class="fas fa-check-circle"></i> Validar Cédula
+                </button>
+            </div>
+            
+            <!-- Result Section (Hidden by default) -->
+            <div id="resultSection" class="hidden">
+                <div id="resultContent" class="p-6 text-white text-center">
+                    <div class="flex justify-center mb-4">
+                        <div id="resultIcon" class="w-16 h-16 rounded-full bg-white flex items-center justify-center text-3xl">
+                            <!-- Icon will be added dynamically -->
+                        </div>
+                    </div>
+                    <h2 id="resultTitle" class="text-xl font-bold mb-2"></h2>
+                    <p id="resultMessage" class="mb-4"></p>
+                    <div id="cedulaDetails" class="bg-white bg-opacity-20 rounded-lg p-4 text-left hidden">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Tipo:</span>
+                            <span id="tipoCedula"></span>
+                        </div>
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Secuencia:</span>
+                            <span id="secuencia"></span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="font-medium">Dígito Verificador:</span>
+                            <span id="digitoVerificador"></span>
+                        </div>
+                    </div>
+                    <button 
+                        id="tryAgainBtn"
+                        class="mt-4 bg-white bg-opacity-20 hover:bg-opacity-30 text-white font-bold py-2 px-4 rounded-lg transition-all duration-300">
+                        <i class="fas fa-redo mr-2"></i> Validar Otra
+                    </button>
+                </div>
+            </div>
+        
+    <script src="script.js"></script>
+</body>
+</html>

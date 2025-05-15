@@ -1,0 +1,29 @@
+.flag-bg {
+    background: linear-gradient(135deg, #002D62 0%, #CE1126 50%, #002D62 100%);
+}
+.input-error {
+    border-color: #ef4444;
+    animation: shake 0.5s;
+}
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+}
+.success-bg {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+.error-bg {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+.pulse {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.glow {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+}
